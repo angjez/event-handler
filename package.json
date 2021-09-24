@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "scripts": {
+    "down": "docker-compose down",
+    "install:backend": "yarn --cwd ./backend install",
+    "install:frontend": "yarn --cwd ./frontend install",
+    "install:all": "yarn install:backend && yarn install:frontend",
+    "logs": "docker-compose logs -f --tail=10",
+    "start": "yarn up && yarn logs",
+    "stop": "docker-compose stop",
+    "up": "docker-compose up --build -d"
+  },
+  "devDependencies": {
+    "concurrently": "5.3.0",
+    "eslint": "^7.29.0",
+    "husky": "4.3.0",
+    "lint-staged": "10.5.2",
+    "prettier": "2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "backend/src/**/*.{ts,tsx}": [
+      "yarn --cwd ./backend eslint --fix",
+      "yarn --cwd ./backend prettier --write"
+    ],
+    "frontend/src/**/*.{gql,graphql}": [
+      "yarn --cwd ./frontend prettier --write"
+    ],
+    "frontend/src/**/*.{ts,tsx}": [
+      "yarn --cwd ./frontend eslint --fix",
+      "yarn --cwd ./frontend prettier --write"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": "."
+    },
+    {
+      "name": "backend",
+      "path": "backend"
+    },
+    {
+      "name": "frontend",
+      "path": "frontend"
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      ".env.template": "dotenv"
+    },
+    "files.exclude": {
+      "backend/**": true,
+      "frontend/**": true
+    },
+    "editor.formatOnSave": true,
+    "typescript.tsdk": "root/node_modules/typescript/lib",
+    "npm.packageManager": "yarn",
+    "workbench.colorCustomizations": {
+      "statusBar.background": "#f39996",
+      "statusBar.foreground": "#15202b",
+      "statusBarItem.hoverBackground": "#ee6d68",
+      "titleBar.activeBackground": "#f39996",
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.inactiveBackground": "#f3999699",
+      "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#f39996",
+    "peacock.affectActivityBar": false
+  }
+}

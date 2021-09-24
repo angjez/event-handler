@@ -1,0 +1,63 @@
+version: "3.7"
+
+services:
+  database:
+    container_name: event-handler-database
+    image: postgres:12.5
+    env_file:
+      - .env
+    restart: on-failure
+    environment:
+      POSTGRES_USER: "${DB_USER}"
+      POSTGRES_PASSWORD: "${DB_PASS}"
+      POSTGRES_DB: "${DB_NAME}"
+    ports:
+      - "5432:5432"
+
+  backend:
+    container_name: event-handler-backend
+    image: node:14.17-alpine
+    env_file:
+      - .env
+    restart: on-failure
+    command: sh -c "yarn install && yarn prisma generate && yarn prisma migrate deploy && yarn start:dev"
+    ports:
+      - "9229:9229"
+      - "4000:4000"
+    working_dir: /usr/app
+    volumes:
+      - "./backend/package.json:/usr/app/package.json"
+      - "./backend/yarn.lock:/usr/app/yarn.lock"
+      - "./backend/tsconfig.json:/usr/app/tsconfig.json"
+      - "./backend/tsconfig.build.json:/usr/app/tsconfig.build.json"
+      - "./backend/src:/usr/app/src"
+      - "./backend/prisma:/usr/app/prisma"
+      - "backend_node_modules:/usr/app/node_modules"
+    depends_on:
+      - database
+    environment:
+      CHOKIDAR_USEPOLLING: 1
+      CHOKIDAR_POLLINTERVAL: 3000
+
+  frontend:
+    container_name: event-handler-frontend
+    image: node:14.17-alpine
+    env_file:
+      - .env
+    restart: on-failure
+    command: sh -c "yarn && yarn start"
+    ports:
+      - "3000:3000"
+    working_dir: /usr/app
+    volumes:
+      - ./frontend:/usr/app
+      - frontend_node_modules:/usr/app/node_modules
+    depends_on:
+      - backend
+    environment:
+      CHOKIDAR_USEPOLLING: 1
+      CHOKIDAR_POLLINTERVAL: 3000
+
+volumes:
+  backend_node_modules:
+  frontend_node_modules:
