@@ -1,0 +1,63 @@
+{
+  "name": "event-handler",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "cypress": "^8.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "styled-components": "^5.3.1",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
+    "serve": "serve -s build -l tcp://0.0.0.0:3000",
+    "format": "prettier --write src/**/*.{ts,tsx}",
+    "format:check": "prettier --list-different src/**/*.{ts,tsx}",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "cypress": "cross-env NODE_OPTIONS=--max_old_space_size=4096 cypress",
+    "cypress:open": "yarn cypress open",
+    "cypress:run": "yarn cypress run --browser chrome",
+    "verify": "yarn format:check && yarn lint && yarn type-check",
+    "codegen": "graphql-codegen --config codegen.yml",
+    "codegen:watch": "gql-gen --config codegen.yml --watch"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^6.3.0",
+    "@types/styled-components": "^5.1.14",
+    "prettier": "^2.4.1",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "webpack-bundle-analyzer": "^4.4.2"
+  }
+}
