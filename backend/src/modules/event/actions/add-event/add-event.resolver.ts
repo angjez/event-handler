@@ -10,7 +10,7 @@ export class AddEventResolver {
     @Inject(AddEventService) private readonly service: AddEventService,
   ) {}
 
-  @Mutation((returns) => AddEventResponse)
+  @Mutation(() => AddEventResponse)
   async addEvent(
     @Args('input') input: AddEventInput,
   ): Promise<typeof AddEventResponse> {
