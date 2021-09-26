@@ -3,20 +3,19 @@ import { IsDate, IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
 @InputType()
 export class AddEventInput {
-  @Field({ nullable: false })
+  @Field()
   @IsString()
   @IsNotEmpty()
   name: string;
 
-  @Field({ nullable: false })
+  @Field()
   @IsString()
   @IsNotEmpty()
   surname: string;
 
-  @Field({ nullable: false })
+  @Field()
   @IsString()
   @IsEmail()
-  @IsNotEmpty()
   email: string;
 
   @Field()

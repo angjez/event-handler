@@ -1,0 +1,8 @@
+mutation addEvent($input: AddEventInput!) {
+  addEvent(input: $input) {
+    __typename
+    ... on EventSuccessfulAddedResponse {
+      message
+    }
+  }
+}

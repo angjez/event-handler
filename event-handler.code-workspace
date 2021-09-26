@@ -22,7 +22,6 @@
       "frontend/**": true
     },
     "editor.formatOnSave": true,
-    "typescript.tsdk": "root/node_modules/typescript/lib",
     "npm.packageManager": "yarn",
     "workbench.colorCustomizations": {
       "statusBar.background": "#f39996",
