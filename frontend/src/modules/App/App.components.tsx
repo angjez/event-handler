@@ -1,4 +1,4 @@
-import background from "@src/common/assets/background.svg";
+import colors from "@src/common/styles/colors";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -8,5 +8,5 @@ export const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
 
-  background-image: url("${background}");
+  background-color: ${colors.pink50};
 `;

@@ -10,15 +10,15 @@ export const Panel = styled.div`
   flex-direction: column;
   align-items: center;
 
-  height: 80%;
-  width: 35%;
+  width: 30%;
 
   border-radius: 10px;
 
-  background-color: ${colors.background};
-  backdrop-filter: blur(5px);
-  border: 2px solid ${colors.navy};
+  background-color: ${colors.white};
+  border-top: 2px solid ${colors.navy};
   box-shadow: 0px 8px 10px ${colors.shadow};
+
+  padding: 40px;
 
   ${media.only("TABLET")` 
     width: 100%;

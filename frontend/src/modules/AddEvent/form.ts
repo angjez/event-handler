@@ -15,8 +15,10 @@ export const addEventInitialValues: AddEventFormValues = {
 };
 
 export const addEventValidationSchema = Yup.object().shape({
-  email: Yup.string().email().required("Invalid email address."),
-  name: Yup.string().required(),
-  surname: Yup.string().required(),
-  date: Yup.date().required(),
+  email: Yup.string()
+    .email("Invalid email address.")
+    .required("Email is required."),
+  name: Yup.string().required("Name is required."),
+  surname: Yup.string().required("Surname is required."),
+  date: Yup.date().required("Date is required."),
 });
