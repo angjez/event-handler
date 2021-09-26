@@ -26,3 +26,13 @@ export const MessageText = styled.h2`
 
   color: ${colors.navy};
 `;
+
+export const Error = styled.div`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+
+  color: ${colors.pink};
+
+  margin-top: 8px;
+`;

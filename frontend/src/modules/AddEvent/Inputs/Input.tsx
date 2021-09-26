@@ -1,5 +1,5 @@
+import { Error } from "@src/modules/AddEvent/AddEventFormContent.components";
 import {
-  Error,
   InputWrapper,
   StyledInput,
 } from "@src/modules/AddEvent/Inputs/Input.components";
@@ -16,7 +16,9 @@ const Input: FunctionComponent<Props> = ({ fieldName, type }) => (
     {({ field, meta }: FieldProps) => (
       <InputWrapper>
         <StyledInput {...field} placeholder={field.name} value={field.value} />
-        {<Error>{meta.touched && meta.error ? meta.error : undefined}</Error>}
+        {meta.touched && meta.error ? (
+          <Error data-cy="error">{meta.error}</Error>
+        ) : null}
       </InputWrapper>
     )}
   </Field>

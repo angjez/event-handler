@@ -1,4 +1,5 @@
 import {
+  Error,
   FormWrapper,
   StyledTextField,
   StyledTextFieldWrapper,
@@ -15,6 +16,7 @@ const AddEventFormContent: FunctionComponent<Props> = ({
   values,
   isValid,
   isSubmitting,
+  errors,
   setFieldValue,
 }) => (
   <FormWrapper>
@@ -33,6 +35,7 @@ const AddEventFormContent: FunctionComponent<Props> = ({
           value={values.date}
           onChange={(v) => setFieldValue("date", v.currentTarget.value)}
         />
+        {errors.date && <Error data-cy="error">{errors.date}</Error>}
       </StyledTextFieldWrapper>
       <Button type="submit" isLoading={isSubmitting} disabled={!isValid}>
         Submit

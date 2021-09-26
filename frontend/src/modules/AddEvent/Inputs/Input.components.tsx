@@ -23,16 +23,6 @@ export const StyledInput = styled.input`
   ${input()}
 `;
 
-export const Error = styled.div`
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 20px;
-
-  color: ${colors.pink};
-
-  margin-top: 8px;
-`;
-
 export const MultiInputWrapper = styled.div`
   display: flex;
   flex-direction: row;

@@ -51,7 +51,7 @@ const AddEventForm: FunctionComponent = () => {
   return (
     <>
       {message ? (
-        <Message>
+        <Message data-cy="message">
           <MessageText>{message.message}</MessageText>
           <Lottie
             eventListeners={[

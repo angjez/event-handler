@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig-paths.json",
+  "compilerOptions": {
+    "strict": true,
+    "target": "es2015",
+    "lib": ["es2018", "dom"],
+    "types": ["cypress"],
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "isolatedModules": false,
+    "baseUrl": ".."
+  },
+  "include": ["**/*.ts"]
+}
