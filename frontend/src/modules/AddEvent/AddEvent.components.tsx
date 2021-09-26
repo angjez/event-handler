@@ -23,13 +23,11 @@ export const Panel = styled.div`
   ${media.only("TABLET")` 
     width: 100%;
     margin: ${TABLET_MARGIN}px;
-    height: calc(var(--vh, 1vh) * 100 - ${2 * TABLET_MARGIN}px);
   `}
 
   ${media.down("MOBILE")`
     width: 100%;
     margin: ${MOBILE_MARGIN}px;
-    min-height: calc(var(--vh, 1vh) * 100 - ${2 * MOBILE_MARGIN}px);
     height: auto;
   `}
 `;
